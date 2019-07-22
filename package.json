@@ -1,6 +1,6 @@
 {
   "name": "lottie-react-native",
-  "version": "3.0.2",
+  "version": "2.6.1",
   "description": "React Native bindings for Lottie",
   "main": "src/index.js",
   "types": "src/index.d.ts",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "invariant": "^2.2.2",
-    "lottie-ios": "^3.0.3",
+    "lottie-ios": "^2.5.3",
     "prop-types": "^15.5.10",
     "react-native-safe-module": "^1.1.0"
   },
@@ -54,5 +54,10 @@
     "eslint-plugin-prettier": "^2.3.1",
     "prettier": "^1.8.2",
     "prettier-eslint": "^8.2.2"
+  },
+  "rnpm": {
+    "android": {
+      "sourceDir": "./src/android"
+    }
   }
 }

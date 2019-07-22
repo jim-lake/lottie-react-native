@@ -22,7 +22,6 @@ const LottieViewManager = SafeModule.module({
   mock: {
     play: () => {},
     reset: () => {},
-    getConstants: () => {},
   },
 });
 
@@ -82,15 +81,6 @@ const viewConfig = {
   },
 };
 
-const safeGetViewManagerConfig = moduleName => {
-  if (UIManager.getViewManagerConfig) {
-    // RN >= 0.58
-    return UIManager.getViewManagerConfig(moduleName);
-  }
-  // RN < 0.58
-  return UIManager[moduleName];
-};
-
 class LottieView extends React.Component {
   constructor(props) {
     super(props);
@@ -129,7 +119,7 @@ class LottieView extends React.Component {
       android: () =>
         UIManager.dispatchViewManagerCommand(
           handle,
-          safeGetViewManagerConfig('LottieAnimationView').Commands[name],
+          UIManager.getViewManagerConfig('LottieAnimationView').Commands[name],
           args,
         ),
       ios: () => LottieViewManager[name](this.getHandle(), ...args),
